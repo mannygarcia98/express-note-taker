@@ -14,6 +14,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
+// makes public files readily available
+// makes files static resources
+app.use(express.static("public"));
 
 function findById(id, notesArray) {
   const result = notesArray.filter((note) => note.id === id)[0];
@@ -28,10 +31,10 @@ function createNewNote(body, notesArray) {
 }
 
 function validateNote(note) {
-  if (!note.title || typeof note.name !== "string") {
+  if (!note.title || typeof note.title !== "string") {
     return false;
   }
-  if (!note.content || typeof note.content !== "string") {
+  if (!note.text || typeof note.text !== "string") {
     return false;
   }
   return true;
@@ -63,6 +66,14 @@ app.post("/api/notes", (req, res) => {
     const note = createNewNote(req.body, notes);
     res.json(note);
   }
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+
+app.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.listen(PORT, () => {

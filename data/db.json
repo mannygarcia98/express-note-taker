@@ -3,17 +3,27 @@
     {
       "id": "0",
       "title": "Call bank on Friday",
-      "content": "Phone Number: (111) 222-3333"
+      "text": "Phone Number: (111) 222-3333"
     },
     {
       "id": "1",
       "title": "Reschedule delivery",
-      "content": "Website: www.Amazon.com/orders"
+      "text": "Website: www.Amazon.com/orders"
     },
     {
       "title": "Finish Note Taker Challenge",
-      "content": "Due April 24th",
+      "text": "Due April 24th",
       "id": "2"
+    },
+    {
+      "title": "test",
+      "text": "test",
+      "id": "3"
+    },
+    {
+      "title": "test",
+      "text": "test",
+      "id": "4"
     }
   ]
 }
