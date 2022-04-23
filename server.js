@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-
+const Nanoid = require("nanoid");
 //Note Data
 const { notes } = require("./data/db.json");
 
@@ -56,7 +56,8 @@ app.get("/api/notes/:id", (req, res) => {
 
 app.post("/api/notes", (req, res) => {
   // set id based on what the next index of the array will be
-  req.body.id = notes.length.toString();
+  // req.body.id = notes.length.toString();
+  req.body.id = Nanoid.nanoid();
 
   // if any data in req.body is incorrect, send 400 error back
   if (!validateNote(req.body)) {
