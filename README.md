@@ -19,9 +19,12 @@
   </details>
 
   </br>
-  ![](public/assets/img/homepage.png)
-  ![](public/assets/img/notes.png)
+  
+  ![](./public/assets/img/homepage.png)
+  ![](./public/assets/img/notes.png)
+
 ## Description
+
 A note taker application that utlizes Express.js to handle the backend. Notes can be added and deleted. The notes will persist as they are saved to a JSON file which is updated after each creation or deletion of a note.
 
 ## Technologies
