@@ -6,6 +6,7 @@ const { notes } = require("./data/db.json");
 
 //Express
 const express = require("express");
+const { dirname } = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -57,7 +58,7 @@ app.get("/api/notes/:id", (req, res) => {
 app.post("/api/notes", (req, res) => {
   // set id based on what the next index of the array will be
   // req.body.id = notes.length.toString();
-  req.body.id = Nanoid.nanoid();
+  req.body.id = Nanoid.nanoid(5);
 
   // if any data in req.body is incorrect, send 400 error back
   if (!validateNote(req.body)) {
@@ -69,8 +70,14 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
+app.delete("/api/notes/:id", (req, res) => {
+  // const { id } = req.params;
+  // const deleted = notes.find((note) => note.id === id);
+  // if (deleted) {
+  //   notes = notes.filter;
+  // }
+  // res.status(200);
+  res.send("got a DELETE request");
 });
 
 app.get("/notes", (req, res) => {
