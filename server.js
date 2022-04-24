@@ -15,7 +15,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
-// makes public files readily available
 // makes files static resources
 app.use(express.static("public"));
 
@@ -56,8 +55,7 @@ app.get("/api/notes/:id", (req, res) => {
 });
 
 app.post("/api/notes", (req, res) => {
-  // set id based on what the next index of the array will be
-  // req.body.id = notes.length.toString();
+  // generates unique id with nano
   req.body.id = Nanoid.nanoid(5);
 
   // if any data in req.body is incorrect, send 400 error back
@@ -71,13 +69,17 @@ app.post("/api/notes", (req, res) => {
 });
 
 app.delete("/api/notes/:id", (req, res) => {
-  // const { id } = req.params;
-  // const deleted = notes.find((note) => note.id === id);
-  // if (deleted) {
-  //   notes = notes.filter;
-  // }
-  // res.status(200);
-  res.send("got a DELETE request");
+  const { id } = req.params;
+
+  notes.map((note, index) => {
+    if (note.id === id) {
+      notes.splice(index, 1);
+      // console.log(notes);
+
+      return res.json(note);
+    }
+  });
+  fs.writeFileSync(path.join(__dirname, "./data/db.json"), JSON.stringify({ notes: notes }, null, 2));
 });
 
 app.get("/notes", (req, res) => {

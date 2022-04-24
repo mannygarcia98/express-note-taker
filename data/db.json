@@ -1,17 +1,14 @@
-[
-  {
-    "id": "D9yPB",
-    "title": "Call bank on Friday",
-    "text": "Phone Number: (111) 222-3333"
-  },
-  {
-    "id": "kkSXu",
-    "title": "Reschedule delivery",
-    "text": "Website: www.Amazon.com/orders"
-  },
-  {
-    "title": "Turn in Note Taker",
-    "text": "Due 4/24",
-    "id": "YE4ji"
-  }
-]
+{
+  "notes": [
+    {
+      "id": "D9yPB",
+      "title": "Call bank on Friday",
+      "text": "Phone Number: (111) 222-3333"
+    },
+    {
+      "id": "kkSXu",
+      "title": "Reschedule delivery",
+      "text": "Website: www.Amazon.com/orders"
+    }
+  ]
+}
